@@ -89,10 +89,25 @@ $properties = [
     'house' => 'Slytherin'
     ];
     $properties1 = $properties2 = $properties3 = $properties;
-    sort($properties1);
-   print_r($properties1);//[0]=riddle,[1]=sly.. ,[2]=tom
-    asort($properties3);
-   print_r($properties3);//[surname] = riddle,[house] = sly.. ,[firstname] = 'tom'
-    ksort($properties2);
-   print_r($properties2);//[firstname] = Tom,[house] = Sly.. ,[surname] = riddle
+//     sort($properties1);
+//    print_r($properties1);//[0]=riddle,[1]=sly.. ,[2]=tom
+//     asort($properties3);
+//    print_r($properties3);//[surname] = riddle,[house] = sly.. ,[firstname] = 'tom'
+//     ksort($properties2);
+//    print_r($properties2);//[firstname] = Tom,[house] = Sly.. ,[surname] = riddle
+
+
+   //size of an array
+   $names = ['Harry', 'Ron', 'Hermione'];
+    $size = count($names);
+    //var_dump($size); // 3
+
+    //merge two arrays;
+    $good = ['Harry', 'Ron', 'Hermione'];
+    $bad = ['Dudley', 'Vernon', 'Petunia'];
+    $all = array_merge($good, $bad);
+    //var_dump($all);[0] = harry,[1] = Ron,[2]=Hermione,[3] = Dudley ..
+
+    
+
 ?>
