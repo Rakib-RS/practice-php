@@ -1,40 +1,46 @@
 <?php
+
 namespace Bookstore\Domain;
-    class Customer{
-        private $firstname;
-        private $surname;
-        private $id;
-        private $email;
-        private static $lastId = 0;
-    public function __construct( $id,string $firstName,string $surname,string $email){
-        if ($id == null) {
+
+class Customer extends Person
+{
+    private static $lastId = 0;
+    private $id;
+    private $email;
+    public function __construct(
+        int $id,
+        string $firstname,
+        string $surname,
+        string $email
+    ) {
+        if (empty($id)) {
             $this->id = ++self::$lastId;
-        } 
-        else {
+        } else {
             $this->id = $id;
             if ($id > self::$lastId) {
                 self::$lastId = $id;
             }
         }
-        $this->firstname = $firstName;
-        $this->surname = $surname;
+        parent::__construct($firstname,$surname);
+    }
+    public static function getLastId(): int
+    {
+        return self::$lastId;
+    }
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+    public function setEmail($email)
+    {
+
         $this->email = $email;
     }
-    public function getId(): id {
-        return $this->id;
-        }
-        public function getFirstname(): string {
-        return $this->firstname;
-        }
-        public function getSurname(): string {
-        return $this->surname;
-        }
-        public function getEmail(): string {
-        return $this->email;
-        }
-        public function setEmail(string $email) {
-            $this->email = $email;
-        }
 }
-
-?>
+$customer = new Customer(1,'rakib','r','rakib@');
+ $email = $customer->getEmail();
+ echo $email;
